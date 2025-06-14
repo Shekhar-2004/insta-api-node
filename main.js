@@ -6,6 +6,9 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const PORT = process.env.PORT || 10000; // Render uses port 10000 by default
 
+// Fixes the warning you saw
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(cors({
     origin: process.env.ALLOWED_ORIGINS?.split(',') || '*',
